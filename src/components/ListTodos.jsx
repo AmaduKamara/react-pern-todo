@@ -1,6 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const ListTodos = () => {
+  const [todos, setTodos] = useState([]);
+
+  const fetchTodos = async () => {
+    try {
+      const response = await fetch("http://localhost:5000/todos");
+      const todos = await response.json();
+      setTodos(todos);
+    } catch (error) {
+      console.error(error.message);
+    }
+  };
+
+  useEffect(() => {
+    fetchTodos();
+  }, []);
+
   return (
     <>
       <div className="d-flex justify-content-center">
@@ -14,11 +30,14 @@ const ListTodos = () => {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
+              {todos &&
+                todos.map((todo) => (
+                  <tr key={todo.todo_id}>
+                    <td>{todo.description}</td>
+                    <td className="btn">Edit</td>
+                    <td className="btn">Delete</td>
+                  </tr>
+                ))}
             </tbody>
           </table>
         </div>
