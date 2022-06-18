@@ -3,7 +3,7 @@ import React from "react";
 const ListTodos = () => {
   return (
     <>
-      <h1>ListTodos</h1>
+      <h1>List Todos</h1>
     </>
   );
 };

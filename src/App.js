@@ -1,10 +1,8 @@
-import ListTodos from "./components/ListTodos";
-
+import InputTodo from "./components/InputTodo";
 const App = () => {
   return (
-    <div>
-      <h1>PERN Todo App</h1>
-      <ListTodos />
+    <div className="container">
+      <InputTodo />
     </div>
   );
 };
