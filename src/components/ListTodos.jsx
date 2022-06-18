@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import EditTodo from "./EditTodo";
 
 // Fetching all todos
 const ListTodos = () => {
@@ -48,7 +49,9 @@ const ListTodos = () => {
                 todos.map((todo) => (
                   <tr key={todo.todo_id}>
                     <td>{todo.description}</td>
-                    <td className="text-info btn">Edit</td>
+                    <td className="text-info btn">
+                      <EditTodo todo={todo} />
+                    </td>
                     <td
                       className="text-danger btn"
                       onClick={() => handleDelete(todo.todo_id)}

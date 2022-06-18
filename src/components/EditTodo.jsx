@@ -1,11 +1,54 @@
-import React from 'react'
+import React, { useState } from "react";
 
-const EditTodo = () => {
+const EditTodo = ({ todo }) => {
+  const [description, setDescription] = useState(todo.description);
   return (
     <>
-      <h1>Edit Todo</h1>
+      <tr
+        class="btn text-info"
+        data-bs-toggle="modal"
+        data-bs-target="#myModal"
+      >
+        Edit
+      </tr>
+
+      <div class="modal" id="myModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Edit Todo</h4>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+              ></button>
+            </div>
+
+            <div class="modal-body">
+              <input type="text" class="form-control" value={description} />
+            </div>
+
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-warning"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+              <button
+                type="button"
+                class="btn btn-info"
+                data-bs-dismiss="modal"
+              >
+                Update
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </>
   );
-}
+};
 
-export default EditTodo
+export default EditTodo;
