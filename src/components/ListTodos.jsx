@@ -49,9 +49,7 @@ const ListTodos = () => {
                 todos.map((todo) => (
                   <tr key={todo.todo_id}>
                     <td>{todo.description}</td>
-                    <td className="text-info btn">
-                      <EditTodo todo={todo} />
-                    </td>
+                    <EditTodo todo={todo} />
                     <td
                       className="text-danger btn"
                       onClick={() => handleDelete(todo.todo_id)}
