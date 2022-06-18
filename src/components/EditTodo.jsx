@@ -7,12 +7,12 @@ const EditTodo = ({ todo }) => {
       <tr
         class="btn text-info"
         data-bs-toggle="modal"
-        data-bs-target="#myModal"
+        data-bs-target={`#id${todo.todo_id}`}
       >
         Edit
       </tr>
 
-      <div class="modal" id="myModal">
+      <div class="modal" id={`id${todo.todo_id}`}>
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
